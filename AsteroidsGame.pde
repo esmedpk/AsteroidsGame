@@ -1,5 +1,6 @@
 //your variable declarations here
 Spaceship newFriend = new Spaceship();
+Asteroid one = new Asteroid();
 Star[] galaxy = new Star[200];
 public void setup() 
 {
@@ -18,6 +19,8 @@ public void draw()
   }
   newFriend.show();
   newFriend.move();
+  one.show();
+  
 }
 public void keyPressed()
 {

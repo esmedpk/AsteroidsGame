@@ -1,22 +1,31 @@
-class Spaceship extends Floater  
-{   
-    public Spaceship() {
-      corners = 3;
+class Asteroid extends Floater
+{
+	public Asteroid()
+	{
+		corners = 7;
       xCorners = new int[corners];
       yCorners = new int[corners];
-      xCorners[0] = -8;
-      yCorners[0] = -8;
+      xCorners[0] = -7;
+      yCorners[0] = -9;
       xCorners[1] = 16;
-      yCorners[1] = 0;
-      xCorners[2] = -8;
-      yCorners[2] = 8;
-      myColor = color(255,0,0);
-      myCenterX = 250;
-      myCenterY = 250;
+      yCorners[1] = 1;
+      xCorners[2] = -6;
+      yCorners[2] = 11;
+      xCorners[3] = -18;
+      yCorners[3] = 3;
+      xCorners[4] = -20;
+      yCorners[4] = 4;
+      xCorners[5] = -18;
+      yCorners[5] = -3;
+      xCorners[6] = 2;
+      yCorners[6] = -3;
+      myColor = color(126,126,126);
+      myCenterX = 100;
+      myCenterY = 100;
       myPointDirection = 0;
       myDirectionX = 0;
       myDirectionY = 0;
-    }
+	}
     public void setX(int x){myCenterX = x;}  
     public int getX(){return (int)myCenterX;}   
     
