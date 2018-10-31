@@ -1,12 +1,21 @@
 //your variable declarations here
 Spaceship newFriend = new Spaceship();
+Star[] galaxy = new Star[200];
 public void setup() 
 {
   size(500,500);
+  for(int i = 0; i < galaxy.length ; i++)
+  {
+    galaxy[i] = new Star();
+  }
 }
 public void draw() 
 {
   background(0);
+  for(int i = 0; i < galaxy.length ; i++)
+  {
+    galaxy[i].show();
+  }
   newFriend.show();
   newFriend.move();
 }
@@ -28,10 +37,9 @@ public void keyPressed()
   {
     newFriend.setDirectionX(0);
     newFriend.setDirectionY(0);
-    newFriend.setX((int)(Math.random()*400));
-    newFriend.setY((int)(Math.random()*400));
+    newFriend.setX((int)(Math.random()*500));
+    newFriend.setY((int)(Math.random()*500));
     newFriend.setPointDirection((int)(Math.random()*360));
   }
-  
 }
   
