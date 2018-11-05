@@ -20,6 +20,7 @@ public void draw()
   newFriend.show();
   newFriend.move();
   one.show();
+  one.move();
   
 }
 public void keyPressed()
