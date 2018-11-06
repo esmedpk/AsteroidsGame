@@ -1,13 +1,18 @@
 //your variable declarations here
 Spaceship newFriend = new Spaceship();
-Asteroid one = new Asteroid();
+Asteroid[] rocks = new Asteroid[5];
 Star[] galaxy = new Star[200];
+
 public void setup() 
 {
   size(500,500);
   for(int i = 0; i < galaxy.length ; i++)
   {
     galaxy[i] = new Star();
+  }
+  for(int i = 0; i < rocks.length ; i++)
+  {
+    rocks[i] = new Asteroid();
   }
 }
 public void draw() 
@@ -17,10 +22,13 @@ public void draw()
   {
     galaxy[i].show();
   }
+  for(int i = 0; i < rocks.length ; i++)
+  {
+    rocks[i].show();
+    rocks[i].move();
+  }
   newFriend.show();
   newFriend.move();
-  one.show();
-  one.move();
   
 }
 public void keyPressed()
