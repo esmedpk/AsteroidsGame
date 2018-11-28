@@ -1,6 +1,7 @@
 class Asteroid extends Floater
 {
   int rotSpeed = (int)(Math.random()*3)+1;
+  boolean exist;
 	public Asteroid()
 	{
 		  corners = 7;
@@ -26,7 +27,7 @@ class Asteroid extends Floater
       myPointDirection = 0;
       myDirectionX = (Math.random()*10)-5;
       myDirectionY = (Math.random()*10)-5;
-      
+      exist = true;
 	}
     public void setX(int x){myCenterX = x;}  
     public int getX(){return (int)myCenterX;}   
@@ -47,5 +48,9 @@ class Asteroid extends Floater
     {
       turn(rotSpeed);
       super.move();
+      if(dist(myCenterX,myCenterY,mouseX,mouseY) < 10)
+     {
+       exist = false;
+     }
     }
 }
