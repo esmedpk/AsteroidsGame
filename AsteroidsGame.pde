@@ -26,6 +26,9 @@ public void draw()
   {
     rocks.get(i).show();
     rocks.get(i).move();
+    float distance = dist((newFriend.getX()),(newFriend.getY()),(rocks.get(i).getX()),(rocks.get(i).getY()));
+    if (distance<10)
+        rocks.remove(i);
   }
   newFriend.show();
   newFriend.move();
