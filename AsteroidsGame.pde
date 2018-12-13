@@ -1,6 +1,7 @@
 //your variable declarations here
 Spaceship newFriend = new Spaceship();
-ArrayList<Asteroid> rocks = new ArrayList<Asteroid>();
+ArrayList <Bullet> bullets = new ArrayList<Bullet>();
+ArrayList <Asteroid> rocks = new ArrayList<Asteroid>();
 Star[] galaxy = new Star[200];
 
 public void setup() 
@@ -22,6 +23,7 @@ public void draw()
   {
     galaxy[i].show();
   }
+  
   for(int i = 0; i < rocks.size() ; i++)
   {
     rocks.get(i).show();
@@ -29,6 +31,12 @@ public void draw()
     float distance = dist((newFriend.getX()),(newFriend.getY()),(rocks.get(i).getX()),(rocks.get(i).getY()));
     if (distance<10)
         rocks.remove(i);
+  }
+  
+  for (int i = 0; i < bullets.size(); i++)
+  {
+    bullets.get(i).show();
+    bullets.get(i).move();
   }
   newFriend.show();
   newFriend.move();
@@ -55,6 +63,10 @@ public void keyPressed()
     newFriend.setX((int)(Math.random()*500));
     newFriend.setY((int)(Math.random()*500));
     newFriend.setPointDirection((int)(Math.random()*360));
+  }
+  if(key == ' ')
+  {
+    bullets.add(new Bullet(newFriend));
   }
 }
   
