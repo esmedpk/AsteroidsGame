@@ -6,12 +6,12 @@ Star[] galaxy = new Star[200];
 
 public void setup() 
 {
-  size(500,500);
-  for(int i = 0; i < galaxy.length ; i++)
+  size(500, 500);
+  for (int i = 0; i < galaxy.length; i++)
   {
     galaxy[i] = new Star();
   }
-  for(int i = 0; i < 5 ; i++)
+  for (int i = 0; i < 5; i++)
   {
     rocks.add(new Asteroid());
   }
@@ -19,20 +19,26 @@ public void setup()
 public void draw() 
 {
   background(0);
-  for(int i = 0; i < galaxy.length ; i++)
+  for (int i = 0; i < galaxy.length; i++)
   {
     galaxy[i].show();
   }
-  
-  for(int i = 0; i < rocks.size() ; i++)
+
+  for (int i = 0; i < rocks.size(); i++)
   {
     rocks.get(i).show();
     rocks.get(i).move();
-    float distance = dist((newFriend.getX()),(newFriend.getY()),(rocks.get(i).getX()),(rocks.get(i).getY()));
-    if (distance<10)
+    for (int x = 0; x < bullets.size(); x++)
+    {
+      if (dist((bullets.get(x).getX()), (bullets.get(x).getY()), (rocks.get(i).getX()), (rocks.get(i).getY())) < 10)
+      {
+        bullets.remove(x);
         rocks.remove(i);
+        break;
+      }
+    }
   }
-  
+
   for (int i = 0; i < bullets.size(); i++)
   {
     bullets.get(i).show();
@@ -40,23 +46,20 @@ public void draw()
   }
   newFriend.show();
   newFriend.move();
-  
 }
+
 public void keyPressed()
 {
-  if(keyCode == RIGHT)
+  if (keyCode == RIGHT)
   {
     newFriend.turn(5);
-  }
-  else if(keyCode == LEFT)
+  } else if (keyCode == LEFT)
   {
     newFriend.turn(-5);
-  }
-  else if(keyCode == UP)
+  } else if (keyCode == UP)
   {
     newFriend.accelerate(0.01);
-  }
-  else if(keyCode == DOWN)
+  } else if (keyCode == DOWN)
   {
     newFriend.setDirectionX(0);
     newFriend.setDirectionY(0);
@@ -64,9 +67,8 @@ public void keyPressed()
     newFriend.setY((int)(Math.random()*500));
     newFriend.setPointDirection((int)(Math.random()*360));
   }
-  if(key == ' ')
+  if (key == ' ')
   {
     bullets.add(new Bullet(newFriend));
   }
 }
-  
